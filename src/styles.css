@@ -16,4 +16,11 @@ body {
   .content-bet {
     flex-direction: column;
   }
+  .columns.is-mobile > .column.is-offset-one-fifth {
+    margin-left: 10%;
+  }
+  .columns.is-mobile > .column.is-three-fifths {
+    flex: none;
+    width: 80%;
+  }
 }
