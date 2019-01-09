@@ -1,36 +1,51 @@
-const arrayWithValues = ["one", "two", "three"];
+const arrayWithValues = [];
 
 function displayValue() {
   // const le = arrayWithValues.length;
   // arrayWithValues[le] = document.getElementById("input").value;
 
+  const apps = document.getElementById("app");
+  while (apps.hasChildNodes()) {
+    apps.removeChild(apps.lastChild);
+  }
+
+  const app = document.getElementById("app");
+  const divLength = document.createElement("div");
+  divLength.classList.add(
+    "column",
+    "media",
+    "is-three-fifths",
+    "is-offset-one-fifth"
+  );
+  divLength.style.padding = "0 0 20px 0";
+
+  divLength.innerHTML = `Łączna ilość wszystkich elementów to <strong>${
+    arrayWithValues.length
+  }</strong>.`;
+  app.appendChild(divLength);
+
   for (let i = 0; i < arrayWithValues.length; i++) {
     const div = document.createElement("div");
 
     div.innerHTML = `
-        <article class="media">
-        długosc całej tablicy: ${arrayWithValues.length}
+        <article style="padding: 0;" class="media column is-three-fifths is-offset-one-fifth">
           <div class="media-content">
-            <div class="content" id="content">Jest to element nr ${i + 1} z ${
+            <div class="content" id="content">Jest to element nr <strong>${i +
+              1}</strong> z <strong>${
       arrayWithValues.length
-    }. Jego wartość to ${arrayWithValues[i]}.</div>
+    }</strong>. Jego wartość to ${arrayWithValues[i]}.</div>
           </div>
         </article>
       `;
 
     const divBox = document.createElement("div");
     divBox.appendChild(div);
+    divBox.classList.add("boxy");
 
-    const app = document.getElementById("app");
     app.appendChild(divBox);
     app.classList.add("box");
 
     document.getElementById("input").value = "";
-
-    // const apps = document.querySelector("#content");
-    // while (apps.hasChildNodes()) {
-    //   apps.removeChild(apps.lastChild);
-    // }
   }
 }
 

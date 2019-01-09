@@ -1,3 +1,10 @@
 body {
   font-family: sans-serif;
 }
+.content-bet {
+  display: flex;
+  justify-content: space-between;
+}
+.media {
+  font-size: 18px;
+}
